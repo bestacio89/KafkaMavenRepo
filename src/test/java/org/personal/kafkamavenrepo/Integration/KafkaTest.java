@@ -4,14 +4,14 @@ package org.personal.kafkamavenrepo.Integration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.personal.kafkamavenrepo.Config.KafkaTestConfig;
+
 import org.personal.kafkamavenrepo.Consumer.Consumer;
 import org.personal.kafkamavenrepo.Domain.MongoDB.Events.Event;
 import org.personal.kafkamavenrepo.Domain.MongoDB.ValueObjects.EventType;
 import org.personal.kafkamavenrepo.Domain.Postgres.BusinessObjects.User;
 import org.personal.kafkamavenrepo.Producer.Producer;
 import org.personal.kafkamavenrepo.Service.BusinessRebuildService;
-import org.personal.kafkamavenrepo.TestKafkaMavenRepoApplication;
+
 import org.personal.kafkamavenrepo.Utilities.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,9 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @Testcontainers
-@SpringBootTest(classes = {TestKafkaMavenRepoApplication.class, KafkaTestConfig.class, TestcontainersConfiguration.class}, // Ensure Main.class is used to load the context
-        properties = "spring.main.allow-bean-definition-overriding=true",
-        webEnvironment = SpringBootTest.WebEnvironment.NONE) // Use NONE for no web environment
+@SpringBootTest // Use NONE for no web environment
 @ActiveProfiles("test")
 @ContextConfiguration(classes = TestcontainersConfiguration.class) // Ensure Testcontainers configuration is used
 public class KafkaTest {
