@@ -2,16 +2,15 @@
 <configuration>
 
     <!-- Appender for Kafka -->
-    <appender name="KafkaAppender" class="org.apache.kafka.log4jappender.KafkaLog4jAppender">
-        <param name="Topic" value="logs"/>
-        <param name="brokerList" value="localhost:9092"/>
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
-        </layout>
+    <appender name="KAFKA" class="net.logstash.logback.appender.LoggingEventKafkaAppender">
+        <brokerAddresses>
+            <brokerAddress>localhost:9092</brokerAddress>
+        </brokerAddresses>
+        <topic>logs</topic>
     </appender>
 
     <!-- Console Appender -->
-    <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -19,8 +18,8 @@
 
     <!-- Root Logger -->
     <root level="INFO">
-        <appender-ref ref="KafkaAppender"/>
-        <appender-ref ref="ConsoleAppender"/>
+        <appender-ref ref="KAFKA"/>
+        <appender-ref ref="CONSOLE"/>
     </root>
 
 </configuration>
