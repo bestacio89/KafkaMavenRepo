@@ -56,10 +56,20 @@ zipkin:
 
 logging:
   level:
-    org:
-      springframework: INFO
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    root: INFO
+    com.yourcompany: DEBUG  # Adjust to your package structure
+  logback:
+    configuration: classpath:logback-spring.xml
+
+logstash:
+  logback:
+    encoder:
+      pattern: '%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n'
+    appender:
+      name: KafkaAppender
+      topic: logs
+      producer:
+        bootstrap-servers: localhost:9092
 
 management:
   endpoints:
