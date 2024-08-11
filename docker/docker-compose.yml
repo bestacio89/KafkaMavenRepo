@@ -57,7 +57,7 @@ services:
 
   app:
     build:
-      context: ../KafkaTemplate
+      context: ../KafkaMavenRepo
       dockerfile: KafkaTemplate.Dockerfile
     container_name: app
     ports:
