@@ -1,0 +1,51 @@
+
+services:
+  mongodb:
+    extends:
+      file: docker-compose.yml
+      service: mongodb
+
+  zookeeper:
+    extends:
+      file: docker-compose.yml
+      service: zookeeper
+
+  kafka:
+    extends:
+      file: docker-compose.yml
+      service: kafka
+    deploy:
+      replicas: 3
+
+  postgres:
+    extends:
+      file: docker-compose.yml
+      service: postgres
+
+  app:
+    extends:
+      file: docker-compose.yml
+      service: app
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ProdDB
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      retries: 3
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  MongoDBData:
+  KafkaData:
+  PostgresData:

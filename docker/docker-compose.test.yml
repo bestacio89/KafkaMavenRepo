@@ -1,0 +1,14 @@
+
+
+services:
+  app:
+    extends:
+      file: docker-compose.yml
+      service: app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/testdb
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../KafkaTemplate:/app
+      - /app/target

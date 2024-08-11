@@ -1,0 +1,71 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10  # Optional, customize based on your needs
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      show-sql: true
+      format-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+liquibase:
+  change-log: classpath:db/changelog/db.changelog-master.xml
+  enabled: true
+  default-schema: public
+  contexts: development,test
+
+
+# MongoDB Configuration
+event:
+  mongodb:
+    uri: ${EVENT_DATASOURCE_URI}
+    database: ${EVENT_DATASOURCE_DATABASE}
+
+# Kafka Configuration
+kafka:
+  bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+  consumer:
+    group-id: ${KAFKA_CONSUMER_GROUP_ID}
+    auto-offset-reset: latest
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+# Sleuth and Zipkin Configuration
+sleuth:
+  sampler:
+    probability: 1.0
+
+zipkin:
+  base-url: ${ZIPKIN_BASE_URL}
+  enabled: true
+
+logging:
+  level:
+    org:
+      springframework: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
