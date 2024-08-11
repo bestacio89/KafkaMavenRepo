@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
+import org.personal.kafkamavenrepo.Config.KafkaTestConfig;
 import org.personal.kafkamavenrepo.Consumer.Consumer;
 import org.personal.kafkamavenrepo.Domain.MongoDB.Events.Event;
 import org.personal.kafkamavenrepo.Domain.MongoDB.ValueObjects.EventType;
@@ -15,6 +16,7 @@ import org.personal.kafkamavenrepo.Service.BusinessRebuildService;
 import org.personal.kafkamavenrepo.Utilities.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -31,7 +33,7 @@ import static org.mockito.Mockito.*;
 @Testcontainers
 @SpringBootTest // Use NONE for no web environment
 @ActiveProfiles("test")
-@ContextConfiguration(classes = TestcontainersConfiguration.class) // Ensure Testcontainers configuration is used
+@ContextConfiguration(classes = { KafkaTestConfig.class, TestcontainersConfiguration.class } )// Ensure Testcontainers configuration is used
 public class KafkaTest {
 
     @Autowired
