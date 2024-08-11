@@ -1,0 +1,16 @@
+
+
+services:
+  mongodb:
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD: ${TEST_MONGO_INITDB_ROOT_PASSWORD}
+
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: ${TEST_POSTGRES_PASSWORD}
+      POSTGRES_DB: test_db
+      POSTGRES_USER: ${TEST_POSTGRES_USER}
+
+  app:
+    environment:
+      SPRING_DATASOURCE_DB: dev_db
