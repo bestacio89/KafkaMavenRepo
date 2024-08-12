@@ -4,8 +4,8 @@
     <!-- Kafka Appender Configuration -->
     <appender name="KAFKA" class="io.github.bullettooth.logback.kafka.KafkaAppender">
         <!-- Use environment variables for Kafka configuration -->
-        <property name="bootstrap.servers" value="${KAFKA_BOOTSTRAP_SERVERS}"/>
-        <property name="topic" value="${KAFKA_TOPIC}"/>
+        <property name="bootstrap.servers" value="kafka:9092"/>
+        <property name="topic" value="test-topic"/>
 
         <!-- Specify an encoder for the appender -->
         <encoder>
