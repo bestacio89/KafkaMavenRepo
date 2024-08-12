@@ -57,7 +57,7 @@ services:
 
   app:
     build:
-      context: ../
+      context: ../../
       dockerfile: Testing-Template.Dockerfile
     container_name: app
     ports:
