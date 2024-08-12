@@ -2,7 +2,7 @@
 <configuration>
 
     <!-- Appender for Kafka -->
-    <appender name="KAFKA" class="net.logstash.logback.appender.LoggingEventKafkaAppender">
+    <appender name="KAFKA" class="io.github.bullettooth.logback.kafka.KafkaAppender">
         <brokerAddresses>
             <brokerAddress>localhost:9092</brokerAddress>
         </brokerAddresses>
