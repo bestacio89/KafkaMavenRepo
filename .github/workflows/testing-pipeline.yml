@@ -44,11 +44,12 @@ jobs:
           SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/TestDB
           SPRING_DATASOURCE_USERNAME: ${{ secrets.POSTGRES_USER }}
           SPRING_DATASOURCE_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-          KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+          KAFKA_BOOTSTRAP_SERVERS: ${{secrets.KAFKA_BOOTSTRAP_SERVER}}
+          KAFKA_TOPIC: ${{secrets.KAFKA_TOPIC}}
         run: |
           # Build and start services, skipping tests during build
           docker compose -f docker/docker-compose.yml up -d
-          docker compose -f docker/docker-compose.yml run --rm app mvn clean package -DskipTests
+          docker compose -f docker/docker-compose.yml run 
 
   Test:
     runs-on: ubuntu-latest
