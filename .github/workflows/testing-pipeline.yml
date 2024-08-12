@@ -48,7 +48,7 @@ jobs:
           KAFKA_TOPIC: ${{ secrets.KAFKA_TOPIC }}
         run: |
           # Build using the 'builder' target (skips tests)
-          docker build --target builder -t my-app-builder .
+          docker build  --target builder -t my-app-builder -f Template.Dockerfile .
 
       - name: Start Services
         run: |
@@ -69,7 +69,7 @@ jobs:
           KAFKA_BOOTSTRAP_SERVERS: kafka:9092
         run: |
           # Run tests using the 'tester' target
-          docker build --target=tester -t my-app-tester
+          docker build -f Template.Dockerfile --target=tester -t my-app-tester
           docker run --rm my-app-tester mvn test
 
   Clean_Up_Environment:
