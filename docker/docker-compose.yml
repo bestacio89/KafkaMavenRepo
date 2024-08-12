@@ -58,7 +58,7 @@ services:
   app:
     build:
       context: ../../KafkaMavenRepo
-      dockerfile: ../Testing-Template.Dockerfile
+      dockerfile: Testing-Template.Dockerfile
     container_name: app
     ports:
       - "8080:8080"
