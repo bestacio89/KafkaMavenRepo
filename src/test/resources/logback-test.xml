@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <!-- Appender for Kafka -->
+    <!-- Kafka Appender Configuration -->
     <appender name="KAFKA" class="io.github.bullettooth.logback.kafka.KafkaAppender">
-        <brokerAddresses>
-            <brokerAddress>localhost:9092</brokerAddress>
-        </brokerAddresses>
-        <topic>logs</topic>
+        <!-- Use environment variables for Kafka configuration -->
+        <property name="bootstrap.servers" value="${KAFKA_BOOTSTRAP_SERVERS}"/>
+        <property name="topic" value="${KAFKA_TOPIC}"/>
+
+        <!-- Specify an encoder for the appender -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
     </appender>
 
-    <!-- Console Appender -->
+    <!-- Console Appender Configuration -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
