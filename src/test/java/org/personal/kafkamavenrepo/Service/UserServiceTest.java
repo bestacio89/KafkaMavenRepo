@@ -16,6 +16,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -24,10 +25,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
-@ContextConfiguration(classes = {KafkaTestConfig.class, TestKafkaMavenRepoApplication.class})
+@SpringBootTest(classes = TestKafkaMavenRepoApplication.class)
+@ContextConfiguration(classes = {KafkaTestConfig.class})
 @EmbeddedKafka(topics = {"event-topic"}, partitions = 1)
 @ActiveProfiles("test")
+@TestPropertySource(locations = "classpath:application-test.yml")
 public class UserServiceTest {
 
     @Autowired

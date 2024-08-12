@@ -1,0 +1,77 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+
+
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${POSTGRES_MAX_POOL_SIZE:10}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        format_sql: true
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    enabled: true
+    default-schema: public
+    contexts: test
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    consumer:
+      group-id: ${KAFKA_CONSUMER_GROUP_ID:test-consumer-group}
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  data:
+    mongodb:
+      uri: ${EVENT_DATASOURCE_URI}
+      database: ${EVENT_DATASOURCE_DATABASE}
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      connect-timeout: 10s
+      endpoint: $(ZIPKIN_BASE_URL)
+      encoding: json
+      read-timeout: 10s
+
+logging:
+  level:
+    root: INFO
+    org.personal.kafkamavenrepo: DEBUG
+  logback:
+    rolling policy:
+      total-size-cap: 5MB
+      max-file-size: 5MB
+      clean-history-on-start: true
+      file-name-pattern: "test Pattern"
+      max-history: 5
+  config: classpath:logback-test.xml
+
+
+
+

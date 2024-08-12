@@ -13,6 +13,7 @@ import org.personal.kafkamavenrepo.Domain.Postgres.BusinessObjects.User;
 import org.personal.kafkamavenrepo.Producer.Producer;
 import org.personal.kafkamavenrepo.Service.BusinessRebuildService;
 
+import org.personal.kafkamavenrepo.TestKafkaMavenRepoApplication;
 import org.personal.kafkamavenrepo.Utilities.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,10 +31,10 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@Testcontainers
-@SpringBootTest // Use NONE for no web environment
+@SpringBootTest(classes = TestKafkaMavenRepoApplication.class)
 @ActiveProfiles("test")
-@ContextConfiguration(classes = { KafkaTestConfig.class, TestcontainersConfiguration.class } )// Ensure Testcontainers configuration is used
+@ContextConfiguration(classes = { KafkaTestConfig.class, TestcontainersConfiguration.class })
+@Testcontainers
 public class KafkaTest {
 
     @Autowired
