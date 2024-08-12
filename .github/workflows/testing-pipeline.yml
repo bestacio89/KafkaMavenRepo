@@ -69,7 +69,7 @@ jobs:
           KAFKA_BOOTSTRAP_SERVERS: kafka:9092
         run: |
           # Run tests using the 'tester' target
-          docker build  --target=tester -t my-app-tester -f Template.Dockerfile.
+          docker build  --target=tester -t my-app-tester .
           docker run --rm my-app-tester mvn test
 
   Clean_Up_Environment:
