@@ -48,7 +48,7 @@ jobs:
           KAFKA_TOPIC: ${{ secrets.KAFKA_TOPIC }}
         run: |
           # Build using the 'builder' target (skips tests)
-          docker build --target=builder -t my-app-builder
+          docker build --target builder -t my-app-builder .
 
       - name: Start Services
         run: |
