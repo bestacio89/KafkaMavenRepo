@@ -8,8 +8,20 @@ WORKDIR /usr/src/app
 COPY pom.xml .
 COPY src ./src
 
-# Package the application
-RUN mvn clean package
+# Build the application without running tests
+RUN mvn clean package -DskipTests
+
+# Testing stage with Java 17 image
+FROM maven:3.8.1-openjdk-17 AS tester
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the Maven project files and the built application from the build stage
+COPY --from=builder /usr/src/app .
+
+# Run all tests (unit and integration)
+RUN mvn test
 
 # Base image for running the application (using Java 17)
 FROM eclipse-temurin:17-jre
