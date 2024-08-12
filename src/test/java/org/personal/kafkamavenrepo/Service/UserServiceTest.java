@@ -2,6 +2,7 @@ package org.personal.kafkamavenrepo.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -21,7 +22,7 @@ import org.springframework.test.context.TestPropertySource;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
@@ -70,7 +71,7 @@ public class UserServiceTest {
         Event event = objectMapper.readValue(messageCaptor.getValue(), Event.class);
 
         // Assert
-        assertEquals(EventType.CREATION, event.getType());
+        Assertions.assertEquals(EventType.CREATION, event.getType());
         assertTrue(event.getDescription().contains("testUser"));
         assertTrue(event.getDescription().contains("test@example.com"));
     }
@@ -98,7 +99,7 @@ public class UserServiceTest {
         Event event = objectMapper.readValue(messageCaptor.getValue(), Event.class);
 
         // Assert
-        assertEquals(EventType.DELETION, event.getType());
+        Assertions.assertEquals(EventType.DELETION, event.getType());
         assertTrue(event.getDescription().contains("testUser"));
         assertTrue(event.getDescription().contains("test@example.com"));
     }

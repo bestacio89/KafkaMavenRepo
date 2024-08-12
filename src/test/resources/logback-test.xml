@@ -2,7 +2,7 @@
 <configuration>
 
     <!-- Kafka Appender Configuration -->
-    <appender name="KAFKA" class="io.github.bullettooth.logback.kafka.KafkaAppender">
+    <appender name="KAFKA" class="ch.qos.logback.classic.AsyncAppender">
         <!-- Use environment variables for Kafka configuration -->
         <property name="bootstrap.servers" value="${KAFKA_BOOTSTRAP_SERVERS}"/>
         <property name="topic" value="${KAFKA_TOPIC}"/>

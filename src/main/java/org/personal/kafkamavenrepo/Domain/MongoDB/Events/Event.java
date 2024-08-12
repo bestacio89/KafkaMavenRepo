@@ -1,5 +1,7 @@
 package org.personal.kafkamavenrepo.Domain.MongoDB.Events;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.personal.kafkamavenrepo.Domain.Generic.IEntity;
 import org.personal.kafkamavenrepo.Domain.MongoDB.ValueObjects.EventType;
 import org.springframework.data.annotation.Id;
@@ -10,47 +12,23 @@ import java.time.LocalDateTime;
 @Document(collection = "events")
 public class Event implements IEntity<String> {
 
+    // Getters and Setters
+    @Setter
+    @Getter
     @Id
     private String id;
+    @Setter
+    @Getter
     private EventType type;
+    @Setter
+    @Getter
     private String description;
+    @Setter
+    @Getter
     private LocalDateTime timestamp;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
     private boolean deleted;
-
-    // Getters and Setters
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public EventType getType() {
-        return type;
-    }
-
-    public void setType(EventType type) {
-        this.type = type;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
 
     @Override
     public LocalDateTime getCreatedDate() {

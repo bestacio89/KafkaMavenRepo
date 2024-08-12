@@ -17,7 +17,6 @@ import org.personal.kafkamavenrepo.TestKafkaMavenRepoApplication;
 import org.personal.kafkamavenrepo.Utilities.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -37,6 +36,7 @@ import static org.mockito.Mockito.*;
 @Testcontainers
 public class KafkaTest {
 
+    @SuppressWarnings("rawtypes")
     @Autowired
     private KafkaTemplate kafkaTemplate;
     @Autowired
@@ -118,6 +118,7 @@ public class KafkaTest {
         // Inject the KafkaTemplate directly
         // Send an invalid message directly to the Kafka topic
         String invalidMessage = "{ \"type\": \"INVALID_TYPE\", \"description\": \"Invalid message\", \"timestamp\": \"Not a date\" }";
+        //noinspection unchecked
         kafkaTemplate.send("test-topic", invalidMessage);
 
         // Wait for the message to be processed
