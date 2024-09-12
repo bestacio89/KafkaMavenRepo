@@ -1,0 +1,17 @@
+resources:
+  - kafka/kafka-deployment.yml
+  - kafka/kafka-pvc.yml
+  - kafka/kafka-service.yml
+  - mongodb/mongodb-deployment.yml
+  - mongodb/mongo-secrets.yml
+  - mongodb/mongodb-pvc.yml
+  - mongodb/mongodb-service.yml
+  - postgres/postgres-deployment.yml
+  - postgres/postgres-secrets.yml
+  - postgres/postgres-pvc.yml
+  - postgres/postgres-service.yml
+  - springapp/app-deployment.yml
+  - springapp/app-service.yml
+  - zookeeper/zookeeper-deployment.yml
+  - zookeeper/zookeeper-service.yml
+  - zookeeper/zookeeper-ingress.yml   # Optional if needed for ingress
