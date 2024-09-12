@@ -1,4 +1,4 @@
-package org.personal.kafkamavenrepo.Config;
+package org.personal.kafkamavenrepo.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;

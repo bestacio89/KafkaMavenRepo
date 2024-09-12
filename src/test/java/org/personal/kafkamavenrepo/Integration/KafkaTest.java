@@ -5,16 +5,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
-import org.personal.kafkamavenrepo.Config.KafkaTestConfig;
-import org.personal.kafkamavenrepo.Consumer.Consumer;
-import org.personal.kafkamavenrepo.Domain.MongoDB.Events.Event;
-import org.personal.kafkamavenrepo.Domain.MongoDB.ValueObjects.EventType;
-import org.personal.kafkamavenrepo.Domain.Postgres.BusinessObjects.User;
-import org.personal.kafkamavenrepo.Producer.Producer;
-import org.personal.kafkamavenrepo.Service.BusinessRebuildService;
+import org.personal.kafkamavenrepo.config.KafkaTestConfig;
+import org.personal.kafkamavenrepo.consumer.Consumer;
+import org.personal.kafkamavenrepo.domain.MongoDB.Events.Event;
+import org.personal.kafkamavenrepo.domain.MongoDB.ValueObjects.EventType;
+import org.personal.kafkamavenrepo.domain.Postgres.BusinessObjects.User;
+import org.personal.kafkamavenrepo.producer.Producer;
+import org.personal.kafkamavenrepo.service.BusinessRebuildService;
 
 import org.personal.kafkamavenrepo.TestKafkaMavenRepoApplication;
-import org.personal.kafkamavenrepo.Utilities.JsonUtil;
+import org.personal.kafkamavenrepo.utilities.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.core.KafkaTemplate;

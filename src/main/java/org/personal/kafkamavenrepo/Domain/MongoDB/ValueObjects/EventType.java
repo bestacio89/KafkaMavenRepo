@@ -1,4 +1,4 @@
-package org.personal.kafkamavenrepo.Domain.MongoDB.ValueObjects;
+package org.personal.kafkamavenrepo.domain.MongoDB.ValueObjects;
 
 public enum EventType {
     CREATION,

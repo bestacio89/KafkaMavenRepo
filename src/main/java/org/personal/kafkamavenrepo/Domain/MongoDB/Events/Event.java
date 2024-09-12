@@ -1,9 +1,9 @@
-package org.personal.kafkamavenrepo.Domain.MongoDB.Events;
+package org.personal.kafkamavenrepo.domain.MongoDB.Events;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.personal.kafkamavenrepo.Domain.Generic.IEntity;
-import org.personal.kafkamavenrepo.Domain.MongoDB.ValueObjects.EventType;
+import org.personal.kafkamavenrepo.domain.Generic.IEntity;
+import org.personal.kafkamavenrepo.domain.MongoDB.ValueObjects.EventType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

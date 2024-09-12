@@ -1,6 +1,6 @@
-package org.personal.kafkamavenrepo.Persistence.Mongo;
+package org.personal.kafkamavenrepo.persistence.Mongo;
 
-import org.personal.kafkamavenrepo.Domain.MongoDB.Events.Event;
+import org.personal.kafkamavenrepo.domain.MongoDB.Events.Event;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

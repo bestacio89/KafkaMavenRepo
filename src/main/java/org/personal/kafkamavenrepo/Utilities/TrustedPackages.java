@@ -1,4 +1,4 @@
-package org.personal.kafkamavenrepo.Utilities;
+package org.personal.kafkamavenrepo.utilities;
 
 public final class TrustedPackages {
 

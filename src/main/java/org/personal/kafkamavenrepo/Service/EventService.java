@@ -1,7 +1,7 @@
-package org.personal.kafkamavenrepo.Service;
+package org.personal.kafkamavenrepo.service;
 
-import org.personal.kafkamavenrepo.Domain.MongoDB.Events.Event;
-import org.personal.kafkamavenrepo.Persistence.Mongo.EventRepository;
+import org.personal.kafkamavenrepo.domain.MongoDB.Events.Event;
+import org.personal.kafkamavenrepo.persistence.Mongo.EventRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

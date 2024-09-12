@@ -1,4 +1,4 @@
-package org.personal.kafkamavenrepo.Domain.Generic;
+package org.personal.kafkamavenrepo.domain.Generic;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

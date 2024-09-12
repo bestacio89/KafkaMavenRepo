@@ -1,10 +1,10 @@
-package org.personal.kafkamavenrepo.Config;
+package org.personal.kafkamavenrepo.config;
 
 
 import com.fasterxml.jackson.databind.ser.std.StringSerializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.personal.kafkamavenrepo.Utilities.TrustedPackages;
+import org.personal.kafkamavenrepo.utilities.TrustedPackages;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

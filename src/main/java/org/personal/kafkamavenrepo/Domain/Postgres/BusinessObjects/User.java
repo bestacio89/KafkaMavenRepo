@@ -1,7 +1,7 @@
-package org.personal.kafkamavenrepo.Domain.Postgres.BusinessObjects;
+package org.personal.kafkamavenrepo.domain.Postgres.BusinessObjects;
 
 import jakarta.persistence.*;
-import org.personal.kafkamavenrepo.Domain.Generic.IEntity;
+import org.personal.kafkamavenrepo.domain.Generic.IEntity;
 
 import java.time.LocalDateTime;
 

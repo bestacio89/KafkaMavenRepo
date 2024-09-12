@@ -1,10 +1,10 @@
-package org.personal.kafkamavenrepo.Service;
+package org.personal.kafkamavenrepo.service;
 
 
-import org.personal.kafkamavenrepo.Domain.MongoDB.ValueObjects.EventType;
-import org.personal.kafkamavenrepo.Domain.Postgres.BusinessObjects.User;
-import org.personal.kafkamavenrepo.Persistence.Postgres.UserRepository;
-import org.personal.kafkamavenrepo.Producer.Producer;
+import org.personal.kafkamavenrepo.domain.MongoDB.ValueObjects.EventType;
+import org.personal.kafkamavenrepo.domain.Postgres.BusinessObjects.User;
+import org.personal.kafkamavenrepo.persistence.Postgres.UserRepository;
+import org.personal.kafkamavenrepo.producer.Producer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

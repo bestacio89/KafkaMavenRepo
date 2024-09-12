@@ -1,9 +1,9 @@
-package org.personal.kafkamavenrepo.Consumer;
+package org.personal.kafkamavenrepo.consumer;
 
 
-import org.personal.kafkamavenrepo.Domain.MongoDB.Events.Event;
-import org.personal.kafkamavenrepo.Service.BusinessRebuildService;
-import org.personal.kafkamavenrepo.Utilities.JsonUtil;
+import org.personal.kafkamavenrepo.domain.MongoDB.Events.Event;
+import org.personal.kafkamavenrepo.service.BusinessRebuildService;
+import org.personal.kafkamavenrepo.utilities.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,6 +1,6 @@
-package org.personal.kafkamavenrepo.Persistence.Postgres;
+package org.personal.kafkamavenrepo.persistence.Postgres;
 
-import org.personal.kafkamavenrepo.Domain.Postgres.BusinessObjects.User;
+import org.personal.kafkamavenrepo.domain.Postgres.BusinessObjects.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
