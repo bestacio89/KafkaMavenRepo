@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: zookeeper-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: "zookeeper.example.com"  # Change this to your domain or local IP
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: zookeeper-service  # Match your service name
+                port:
+                  number: 2181  # The port Zookeeper is running on
